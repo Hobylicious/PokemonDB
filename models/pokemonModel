@@ -22,6 +22,9 @@ const pokeSchema = new mongoose.Schema(
         },
         pokeType: {
             type: String
+        },
+        game: {
+            type: String,
         }
     },
     { timesstamps: true }

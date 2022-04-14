@@ -70,5 +70,13 @@
         "caught": false,
         "seen": false,
         "pokeType": "Water"
+    },
+    {
+        "name": "Pikachu",
+        "img": "http://img.pokemondb.net/artwork/pikachu.jpg",
+        "number": "025",
+        "caught": false,
+        "seen": false,
+        "pokeType": "Electric"
     }
 ]

@@ -1,0 +1,32 @@
+<header class="d-flex justify-content-between align-items-center">
+    <h1>Your Pokemon</h1>
+    <a href="/pokemon/new" class="btn btn-primary">New Pokemon</a>
+    <a href="/pokemon/game" class="btn btn-primary">Pokemon Games</a>
+</header>
+
+<div class="grid">
+    {{#each pokemons}}
+    <div class="card pokeCard" style="margin: 5px 2px; height: 215px ">
+
+        {{#if this.caught}}
+        <div class="text-muted">{{this.name}}
+            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+        </div>
+        {{else}}
+        <div>{{this.name}}
+            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+        </div>
+        {{/if}}
+
+        <div class="links">
+            <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+
+            <a href="/pokemon/{{this.id}}" class="btn btn-info"> View </a>
+
+            <form action="/pokemon/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>

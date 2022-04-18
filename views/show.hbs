@@ -1,0 +1,15 @@
+<h1>{{name}}</h1>
+<img src="{{img}}">
+{{#if this.caught}}
+<p>Status: Caught</p>
+{{else}}
+<p>Status: Not Caught</p>
+{{/if}}
+
+{{#if this.game}}
+<p>This Pokemon's type is: {{this.pokeType}} and was found in game(s): {{this.game}} </p>
+{{else}}
+<p>This Pokemon's type is {{this.pokeType}} and has yet to be seen</p>
+{{/if}}
+
+<a href="/pokemon" class="btn btn-secondary">&larr; Back</a>

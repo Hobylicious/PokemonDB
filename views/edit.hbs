@@ -1,0 +1,45 @@
+<h2>Edit Pokemon:</h2>
+
+<form action="/pokemon/{{this.id}}/?_method=put" method="POST">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" value="{{this.name}}">
+    </div>
+    <div class="form-group">
+        <label for="number">Number:</label>
+        <input type="text" id="number" name="number" class="form-control" value="{{this.number}}">
+    </div>
+    <div class="form-group">
+        <label for="pokeType">Type:</label>
+        <input type="text" id="pokeType" name="pokeType" class="form-control" value="{{this.pokeType}}">
+    </div>
+    <div class="form-group">
+        <label for="img">Image:</label>
+        <input type="text" id="img" name="img" class="form-control" value="{{this.img}}">
+    </div>
+    <div class="form-group">
+        <label for="game">Found in Game(s):</label>
+        <input type="text" id="game" name="game" class="form-control" value="{{this.game}}">
+    </div>
+
+
+    <div class="form-check mb-3">
+        {{#if this.caught}}
+        <input class="form-check-input" type="checkbox" id="caught" name="caught" checked="true" />
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="caught" name="caught" />
+        {{/if}}
+        <label class="form-check-label" for="complete">Caught this 'mon</label>
+    </div>
+    <div class="form-check mb-3">
+        {{#if this.seen}}
+        <input class="form-check-input" type="checkbox" id="seen" name="seen" checked="true" />
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="seen" name="seen" />
+        {{/if}}
+        <label class="form-check-label" for="seen">Seen 'mon</label>
+    </div>
+
+    <input type="submit" value="Update Information" class="btn btn-primary" />
+    <a href="/pokemon" class="btn btn-secondary">Cancel</a>
+</form>

@@ -18,13 +18,13 @@ const pokeSchema = new mongoose.Schema(
         },
         seen: {
             type: Boolean,
-            default: false
+            default: true
         },
         pokeType: {
             type: String
         },
         game: {
-            type: String,
+            type: String
         }
     },
     { timesstamps: true }

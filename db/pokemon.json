@@ -4,7 +4,6 @@
         "img": "http://img.pokemondb.net/artwork/bulbasaur.jpg",
         "number": "001",
         "caught": false,
-        "seen": false,
         "pokeType": "Grass Poison"
     },
     {
@@ -12,7 +11,6 @@
         "img": "http://img.pokemondb.net/artwork/ivysaur.jpg",
         "number": "002",
         "caught": false,
-        "seen": false,
         "pokeType": "Grass Poison"
     },
     {
@@ -20,7 +18,6 @@
         "img": "http://img.pokemondb.net/artwork/venusaur.jpg",
         "number": "003",
         "caught": false,
-        "seen": false,
         "pokeType": "Grass Poison"
     },
     {
@@ -28,7 +25,6 @@
         "img": "http://img.pokemondb.net/artwork/charmander.jpg",
         "number": "004",
         "caught": false,
-        "seen": false,
         "pokeType": "Fire"
     },
     {
@@ -36,7 +32,6 @@
         "img": "https://img.pokemondb.net/artwork/charmeleon.jpg",
         "number": "005",
         "caught": false,
-        "seen": false,
         "pokeType": "Fire"
     },
     {
@@ -44,7 +39,6 @@
         "img": "http://img.pokemondb.net/artwork/charizard.jpg",
         "number": "006",
         "caught": false,
-        "seen": false,
         "pokeType": "Fire Flying"
     },
     {
@@ -52,7 +46,6 @@
         "img": "http://img.pokemondb.net/artwork/squirtle.jpg",
         "number": "007",
         "caught": false,
-        "seen": false,
         "pokeType": "Water"
     },
     {
@@ -60,7 +53,6 @@
         "img": "http://img.pokemondb.net/artwork/wartortle.jpg",
         "number": "008",
         "caught": false,
-        "seen": false,
         "pokeType": "Water"
     },
     {
@@ -68,7 +60,6 @@
         "img": "http://img.pokemondb.net/artwork/blastoise.jpg",
         "number": "009",
         "caught": false,
-        "seen": false,
         "pokeType": "Water"
     },
     {
@@ -76,7 +67,6 @@
         "img": "http://img.pokemondb.net/artwork/pikachu.jpg",
         "number": "025",
         "caught": false,
-        "seen": false,
         "pokeType": "Electric"
     }
 ]

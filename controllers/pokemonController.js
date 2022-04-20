@@ -12,9 +12,17 @@ router.get('/new', (req, res) => {
     res.render('new');
 });
 
+router.get('/gamelist', (req, res) => {
+    Pokemon
+        .find({ game: { $ne: null } })
+        // .then(Pokemon.game.split(","))
+        .then(pokemons => res.render('gamelist', { pokemons }))
+        .catch(console.error);
+});
+
 router.get('/game', (req, res) => {
     Pokemon
-        .find({ game: { $exists: true } })
+        .find({ game: { $ne: null } })
         .then(pokemons => res.render('game', { pokemons }))
         .catch(console.error);
 });

@@ -1,21 +1,13 @@
 <a href="/pokemon" class="btn btn-primary">Home</a>
 <div class="grid">
     {{#each pokemons}}
-    <div class="card pokeCard" style="margin: 5px 2px; height: 250px ">
-
-        {{#if this.caught}}
-        <div class="text-muted">
-            {{this.name}}
-            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
-            Found in game(s): {{this.game}}
-        </div>
-        {{else}}
+    <div class="card pokeCard" style="margin: 5px 2px; height: 225px ">
         <div>
             {{this.name}}
             <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
             Found in game(s): {{this.game}}
         </div>
-        {{/if}}
+
 
         <div class="links">
             <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>

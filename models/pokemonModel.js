@@ -23,9 +23,22 @@ const pokeSchema = new mongoose.Schema(
         pokeType: {
             type: String
         },
-        game: {
-            type: String
+
+        red: {
+            type: Boolean,
+            default: false
+        },
+
+        blue: {
+            type: Boolean,
+            default: false
+        },
+
+        yellow: {
+            type: Boolean,
+            default: false
         }
+
     },
     { timesstamps: true }
 );

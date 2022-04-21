@@ -20,10 +20,24 @@ router.get('/gamelist', (req, res) => {
         .catch(console.error);
 });
 
-router.get('/game', (req, res) => {
+router.get('/red', (req, res) => {
     Pokemon
-        .find({ game: { $ne: null } })
-        .then(pokemons => res.render('game', { pokemons }))
+        .find({ red: { $eq: true } })
+        .then(pokemons => res.render('red', { pokemons }))
+        .catch(console.error);
+});
+
+router.get('/blue', (req, res) => {
+    Pokemon
+        .find({ blue: { $eq: true } })
+        .then(pokemons => res.render('blue', { pokemons }))
+        .catch(console.error);
+});
+
+router.get('/yellow', (req, res) => {
+    Pokemon
+        .find({ blue: { $eq: true } })
+        .then(pokemons => res.render('yellow', { pokemons }))
         .catch(console.error);
 });
 
@@ -56,7 +70,9 @@ router.put('/:id', (req, res) => {
             seen: req.body.seen === 'on',
             number: req.body.number,
             pokeType: req.body.pokeType,
-            game: req.body.game
+            red: req.body.red === 'on',
+            blue: req.body.blue === 'on',
+            yellow: req.body.yellow === 'on'
         },
         { new: true }
     )

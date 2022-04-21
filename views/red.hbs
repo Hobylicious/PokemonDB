@@ -1,0 +1,22 @@
+<a href="/pokemon" class="btn btn-primary">Home</a>
+<div class="grid">
+    {{#each pokemons}}
+    <div class="card pokeCard" style="margin: 5px 2px; height: 225px ">
+        <div>
+            {{this.name}}
+            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+        </div>
+
+
+        <div class="links">
+            <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+
+            <a href="/pokemon/{{this.id}}" class="btn btn-info"> View </a>
+
+            <form action="/pokemon/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>

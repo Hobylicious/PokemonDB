@@ -36,7 +36,7 @@ router.get('/blue', (req, res) => {
 
 router.get('/yellow', (req, res) => {
     Pokemon
-        .find({ blue: { $eq: true } })
+        .find({ yellow: { $eq: true } })
         .then(pokemons => res.render('yellow', { pokemons }))
         .catch(console.error);
 });
@@ -69,6 +69,7 @@ router.put('/:id', (req, res) => {
             caught: req.body.caught === 'on',
             seen: req.body.seen === 'on',
             number: req.body.number,
+            img: req.body.img,
             pokeType: req.body.pokeType,
             red: req.body.red === 'on',
             blue: req.body.blue === 'on',
@@ -82,8 +83,19 @@ router.put('/:id', (req, res) => {
         .catch(console.error);
 });
 
-router.post('/', (req, res) => {
-    Pokemon.create(req.body)
+router.put('/', (req, res) => {
+    Pokemon.create(
+        {
+            name: req.body.name,
+            caught: req.body.caught === 'on',
+            seen: req.body.seen === 'on',
+            number: req.body.number,
+            img: req.body.img,
+            pokeType: req.body.pokeType,
+            red: req.body.red === 'on',
+            blue: req.body.blue === 'on',
+            yellow: req.body.yellow === 'on'
+        })
         .then((pokemons) => {
             res.redirect('/pokemon');
         })

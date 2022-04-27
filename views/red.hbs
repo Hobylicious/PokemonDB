@@ -1,22 +1,35 @@
 <a href="/pokemon" class="btn btn-primary">Home</a>
-<div class="grid">
-    {{#each pokemons}}
-    <div class="card pokeCard" style="margin: 5px 2px; height: 225px ">
-        <div>
-            {{this.name}}
-            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+<a href="/pokemon/new" class="btn btn-primary">New Pokemon</a>
+<a href="/pokemon/blue" class="btn btn-primary">Pokemon Blue</a>
+<a href="/pokemon/yellow" class="btn btn-primary">Pokemon Yellow</a>
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-image: url("https://i.imgur.com/NcE84jL.jpg");
+    }
+</style>
+
+<body>
+    <div class="grid">
+        {{#each pokemons}}
+        <div class="card pokeCard" style="margin: 5px 2px; height: 225px ">
+            <div>
+                {{this.name}}
+                <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+            </div>
+
+
+            <div class="links">
+                <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+
+                <a href="/pokemon/{{this.id}}" class="btn btn-info"> View </a>
+
+                <form action="/pokemon/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </div>
         </div>
-
-
-        <div class="links">
-            <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>
-
-            <a href="/pokemon/{{this.id}}" class="btn btn-info"> View </a>
-
-            <form action="/pokemon/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-            </form>
-        </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
+</body>

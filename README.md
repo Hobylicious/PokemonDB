@@ -2,7 +2,7 @@
 
 **Live Link:**
 [View the Database](https://pokemondb117.herokuapp.com/pokemon)
-![Screen shot of the DB User Interface](.../../images/dbUI.png)
+![Screen shot of the DB User Interface](.../../Images/dbUI.png)
 
 
 # Code/Technologies Used

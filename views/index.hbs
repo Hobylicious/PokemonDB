@@ -5,29 +5,46 @@
     <a href="/pokemon/blue" class="btn btn-primary">Pokemon Blue</a>
     <a href="/pokemon/yellow" class="btn btn-primary">Pokemon Yellow</a>
 </header>
-<div class="grid">
-    {{#each pokemons}}
-    <div class="card pokeCard" style="margin: 5px 2px; height: 215px ">
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-image: url("pokego.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-        {{#if this.caught}}
-        <div class="text-muted">{{this.name}}
-            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+    h1 {
+        color: aqua;
+    }
+</style>
+
+<body>
+    <div class="grid">
+        {{#each pokemons}}
+        <div class="card pokeCard" style="margin: 5px 2px; height: 215px ">
+
+            {{#if this.caught}}
+            <div class="text-muted">{{this.name}}
+                <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+            </div>
+            {{else}}
+            <div>{{this.name}}
+                <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
+            </div>
+            {{/if}}
+
+            <div class="links">
+                <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>
+
+                <a href="/pokemon/{{this.id}}" class="btn btn-info"> View </a>
+
+                <form action="/pokemon/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </div>
         </div>
-        {{else}}
-        <div>{{this.name}}
-            <img src="{{this.img}}" style="width: 150px; height: 150px; display: block">
-        </div>
-        {{/if}}
-
-        <div class="links">
-            <a href="/pokemon/{{this.id}}/edit" class="btn btn-primary">Edit</a>
-
-            <a href="/pokemon/{{this.id}}" class="btn btn-info"> View </a>
-
-            <form action="/pokemon/{{this.id}}?_method=DELETE" method="POST" class="d-inline">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-            </form>
-        </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
+</body>

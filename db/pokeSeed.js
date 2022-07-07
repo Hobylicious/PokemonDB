@@ -1,6 +1,6 @@
 require('dotenv').config()
 const Pokemon = require('../models/pokemonModel.js');
-const seedData = require('./pokemon.json');
+const seedData = require('./newSeed.json');
 
 
 

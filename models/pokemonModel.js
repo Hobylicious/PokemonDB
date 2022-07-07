@@ -9,7 +9,7 @@ const pokeSchema = new mongoose.Schema(
         number: {
             type: Number,
         },
-        img: {
+        image: {
             type: String,
         },
         caught: {
@@ -20,8 +20,17 @@ const pokeSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         },
-        pokeType: {
+        pokeType1: {
             type: String
+        },
+        pokeType2: {
+            type: String
+        },
+        height: {
+            type: Number
+        },
+        weight: {
+            type: Number
         },
 
         red: {

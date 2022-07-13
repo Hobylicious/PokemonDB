@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Pokemon = require('../models/pokemonModel.js');
 const app = express();
+const cors = require('cors')
+
+app.use(cors())
 
 router.get('/', (req, res) => {
     Pokemon.find({}).then(pokemons => res.render('index', { pokemons }))

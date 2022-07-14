@@ -11,6 +11,11 @@ router.get('/', (req, res) => {
         .catch(console.error);
 });
 
+router.get('/api/all', (req, res) => {
+    Pokemon.find({}).then(pokemons => res.json({ pokemons }))
+        .catch(console.error);
+});
+
 router.get('/new', (req, res) => {
     res.render('new');
 });
@@ -53,6 +58,15 @@ router.get('/:id', (req, res) => {
         .catch(console.error)
 });
 
+router.get('/api/:id', (req, res) => {
+    const id = req.params.id;
+    Pokemon.findById(id)
+        .then((pokemons) => {
+            res.json(pokemons)
+        })
+        .catch(console.error)
+});
+
 router.get('/:id/edit', (req, res) => {
     const id = req.params.id;
     Pokemon.findById(id)
@@ -61,6 +75,16 @@ router.get('/:id/edit', (req, res) => {
         })
         .catch(console.error);
 });
+
+router.get('/api/edit/:id', (req, res) => {
+    const id = req.params.id;
+    Pokemon.findById(id)
+        .then((pokemons) => {
+            res.json(pokemons);
+        })
+        .catch(console.error);
+});
+
 
 router.put('/:id', (req, res) => {
     console.log(req.params, req.body);

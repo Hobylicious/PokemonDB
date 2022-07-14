@@ -1,5 +1,29 @@
 const mongoose = require('../db/connection')
 
+const gameSchemaDefault = (name) => {
+    return {
+        name,
+        caught: false,
+        seen: false,
+        onTeam: false
+    };
+};
+const gameSchema = new mongoose.Schema({
+    caught: {
+        type: Boolean,
+        default: false
+    },
+    seen: {
+        type: Boolean,
+        default: false
+    },
+    onTeam: {
+        type: Boolean,
+        default: false
+    },
+    name: { type: String },
+}, { _id: false })
+
 const pokeSchema = new mongoose.Schema(
     {
         name: {
@@ -12,14 +36,7 @@ const pokeSchema = new mongoose.Schema(
         image: {
             type: String,
         },
-        caught: {
-            type: Boolean,
-            default: false
-        },
-        seen: {
-            type: Boolean,
-            default: true
-        },
+
         pokeType1: {
             type: String
         },
@@ -32,22 +49,17 @@ const pokeSchema = new mongoose.Schema(
         weight: {
             type: Number
         },
-
-        red: {
-            type: Boolean,
-            default: false
+        games: {
+            type: Array,
+            default: [
+                gameSchemaDefault('red'),
+                gameSchemaDefault('blue'),
+                gameSchemaDefault('yellow'),
+                gameSchemaDefault('gold'),
+                gameSchemaDefault('silver'),
+                gameSchemaDefault('crystal'),
+            ]
         },
-
-        blue: {
-            type: Boolean,
-            default: false
-        },
-
-        yellow: {
-            type: Boolean,
-            default: false
-        }
-
     },
     { timesstamps: true }
 );

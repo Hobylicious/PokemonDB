@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Pokemon = require('../models/pokemonModel.js');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+const { on } = require('../models/pokemonModel.js');
 
 app.use(cors())
 
@@ -34,6 +35,13 @@ router.get('/red', (req, res) => {
         .then(pokemons => res.render('red', { pokemons }))
         .catch(console.error);
 });
+
+router.get('/api/game/:game', (req, res) => {
+    Pokemon
+        .find({ "games": { $elemMatch: { name: req.params.game, seen: true } } })
+        .then(pokemons => res.json({ pokemons }))
+        .catch(console.error)
+})
 
 router.get('/blue', (req, res) => {
     Pokemon
@@ -109,6 +117,24 @@ router.put('/:id', (req, res) => {
         })
         .catch(console.error);
 });
+
+
+
+router.put('/api/edit/:id', (req, res) => {
+    console.log(req.params, req.body);
+    const id = req.params.id;
+
+    Pokemon.findOneAndUpdate(
+        { _id: id },
+        req.body,
+        { new: true }
+    )
+        .then((pokemons) => {
+            res.json(pokemons);
+        })
+        .catch(console.error);
+});
+
 
 router.put('/', (req, res) => {
     Pokemon.create(

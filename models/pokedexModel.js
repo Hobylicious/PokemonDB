@@ -12,7 +12,7 @@ const gameSchemaDefault = (name) => {
 
 const pokedexSchema = new mongoose.Schema({
     pokemon: [new mongoose.Schema({
-        pokemonId: Pokemon,
+        pokemonId: { type: String },
         games: {
             type: Array,
             default: [

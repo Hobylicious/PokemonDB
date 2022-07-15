@@ -3,7 +3,7 @@ const pokedexModel = require('./pokedexModel')
 
 const userSchema = new mongoose.Schema({
     auth0id: { type: String },
-    userDex: pokedexModel
+    userDex: { type: String }
 })
 
 const User = mongoose.model('User', userSchema)

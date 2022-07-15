@@ -22,11 +22,16 @@ router.post('/api/auth-create', async (req, res) => {
 })
 
 router.get('/api/pokedex/:userID', async (req, res) => {
-    console.log(req.params.userID)
-    const user = await User.findOne({ auth0id: req.params.userID })
-    console.log(user)
-    const pokedex = await Pokedex.findOne({ _id: user.userDex })
-    res.json(pokedex)
+    try {
+        console.log(`userid: ${req.params.userID}`)
+        const user = await User.findOne({ auth0id: req.params.userID })
+        console.log(user)
+        const pokedex = await Pokedex.findOne({ _id: user.userDex })
+        res.json(pokedex)
+    }
+    catch (e) {
+        res.error(e)
+    }
 })
 
 router.put('/api/pokedex/:id', async (req, res) => {

@@ -12,13 +12,16 @@ app.use(cors())
 router.post('/api/auth-create', async (req, res) => {
     const pokedex = { pokemon: [] };
     const savedPokedex = await Pokedex.create(pokedex);
+    console.log(JSON.stringfy(req.body, null, 2));
     const user = { auth0id: req.body.id, userDex: savedPokedex._id };
     const saveUser = await User.create(user);
     res.json(saveUser)
 })
 
 router.get('/api/pokedex/:userID', async (req, res) => {
+    console.log(req.params.userID)
     const user = await User.findOne({ auth0id: req.params.userID })
+    console.log(user)
     const pokedex = await Pokedex.findOne({ _id: user.userDex })
     res.json(pokedex)
 })

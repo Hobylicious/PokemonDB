@@ -13,7 +13,7 @@ router.post('/api/auth-create', async (req, res) => {
     const pokedex = { pokemon: [] };
     const savedPokedex = await Pokedex.create(pokedex);
     const user = { auth0id: req.body.id, userDex: savedPokedex._id };
-    console.log(JSON.stringify(req.body, null, 2));
+    console.log(req.body);
     const saveUser = await User.create(user);
     res.json(saveUser)
 })

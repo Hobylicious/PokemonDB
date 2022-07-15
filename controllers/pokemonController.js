@@ -12,8 +12,9 @@ app.use(cors())
 router.post('/api/auth-create', async (req, res) => {
     const pokedex = { pokemon: [] };
     const savedPokedex = await Pokedex.create(pokedex);
-    const response = { auth0id: req.body.id, userDex: savedPokedex._id };
     const keys = Object.keys(req.body);
+    const authUser = JSON.parse(keys[0])
+    const response = { auth0id: authUser.id, userDex: savedPokedex._id };
     console.log(keys[0])
     // console.log(req.body);
     const saveUser = await User.create(user);

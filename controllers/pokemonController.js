@@ -71,11 +71,18 @@ router.get('/red', (req, res) => {
         .catch(console.error);
 });
 
-router.get('/api/game/:game', (req, res) => {
-    Pokemon
-        .find({ "games": { $elemMatch: { name: req.params.game, seen: true } } })
-        .then(pokemons => res.json({ pokemons }))
-        .catch(console.error)
+router.get('/api/game/:game/:userID', async (req, res) => {
+    const user = await User.findOne({ auth0id: req.params.userID })
+    const pokedex = await Pokedex.findOne({ _id: user.userDex })
+    const seenPokes = pokedex.pokemon.filter((mon) => {
+        const foundGame = mon.games.find((game) => game.name === req.params.game)
+        return foundGame.seen || foundGame.caught || foundGame.onTeam
+    })
+    const pokeIDs = seenPokes.map(poke => poke.pokemonId)
+    const retPoke = await Pokemon.find({ _id: { $in: pokeIDs } })
+    res.json(retPoke)
+    // where seenPokes.pokemonId === Pokemon.pokemonId
+    // return res.json(poke)
 })
 
 router.get('/blue', (req, res) => {

@@ -35,7 +35,10 @@ router.get('/api/pokedex/:userID', async (req, res) => {
 })
 
 router.put('/api/pokedex/:id', async (req, res) => {
+    console.log(`updating pokemon w/ id: ${req.params.id}`)
+    console.log(`JSON Stringy: ${JSON.stringify(req.body, null, 2)}`)
     const pokedex = await Pokedex.findOneAndUpdate({ _id: req.params.id }, req.body)
+
     res.json(pokedex)
 })
 
